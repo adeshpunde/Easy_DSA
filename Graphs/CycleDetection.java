@@ -111,3 +111,73 @@ public class CycleDetection {
  * Output:
  * True
  */
+/*The given code is a Java program that implements cycle detection in an undirected graph. It uses depth-first search (DFS) to detect cycles in the graph. Let's break down the code and explain how it works:
+
+1. **Edge Class**:
+   ```java
+   static class Edge {
+       int src;
+       int dest;
+
+       Edge(int src, int dest) {
+           this.src = src;
+           this.dest = dest;
+       }
+   }
+   ```
+   This class represents an edge in the graph. Each edge has a source vertex (`src`) and a destination vertex (`dest`).
+
+2. **createGraph Method**:
+   ```java
+   public static void createGraph(ArrayList<Edge>[] graph) {
+       // ... (code to create the graph edges)
+   }
+   ```
+   This method initializes the graph by adding edges to it. It creates an array of ArrayLists, where each ArrayList represents the adjacency list for a vertex.
+
+3. **detectCycle Method**:
+   ```java
+   public static boolean detectCycle(ArrayList<Edge>[] graph) {
+       // ... (code to detect cycles in the graph)
+   }
+   ```
+   This method is responsible for detecting cycles in the graph using DFS. It iterates through all vertices in the graph and checks for cycles starting from each unvisited vertex. If it finds a cycle, it returns `true`. Otherwise, it returns `false`.
+
+4. **detectCycleUtil Method**:
+   ```java
+   public static boolean detectCycleUtil(ArrayList<Edge>[] graph, boolean vis[], int curr, int par) {
+       // ... (DFS implementation to detect cycles)
+   }
+   ```
+   This is a helper method for DFS-based cycle detection. It uses a recursive approach to traverse the graph and detect cycles. The `vis` array is used to keep track of visited vertices. It returns `true` if a cycle is detected and `false` otherwise.
+
+5. **bfs Method**:
+   ```java
+   public static void bfs(ArrayList<Edge>[] graph) {
+       // ... (Breadth-First Search traversal of the graph)
+   }
+   ```
+   This method performs a Breadth-First Search (BFS) traversal of the graph starting from vertex 0. It prints the vertices in BFS order.
+
+6. **main Method**:
+   ```java
+   public static void main(String[] args) {
+       int v = 5;
+       ArrayList<Edge>[] graph = new ArrayList[v];
+       createGraph(graph);
+       System.out.println(detectCycle(graph));
+   }
+   ```
+   In the `main` method, the graph is created, and then the `detectCycle` method is called to check if the graph contains any cycles. The result (either `true` or `false`) is printed.
+
+**Output**:
+The output of the code is `true`, indicating that there is a cycle in the given graph.
+
+The graph in this example has the following structure:
+```
+(1)----(0)-----(3)
+   \    |       |
+     \  |       |
+       (2)     (4)
+```
+It's a simple graph with edges connecting vertices. The code correctly detects the presence of a cycle in this graph using depth-first search.*/
